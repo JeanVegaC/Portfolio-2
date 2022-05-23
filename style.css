@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    min-width: 280px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+    transition: .4s;
+}
+
+body{
+    min-width: 280px;
+    overflow-x: hidden;
+
+}
+
+main{
+    min-width: 280px;
+    min-height: 870px;
+}
+
+textarea{
+    resize: none !important;
+}
+
+
+:root{
+    --color-body: #fff; 
+    --color-dark: #000;
+
+    /* BG-SLATE-100 */
+    --color-main: rgb(241 245 249);
+    /* BG-SLATE-200 */
+    --color-second: rgb(226 232 240);
+    /* BG-SLATE-300 */
+    --color-third: rgb(203 213 225);
+    /* BG-SLATE-400 */
+    --color-active: rgb(148 163 184);
+    /* BG-BLUE-500 */
+    --color-fourth: rgb(96 165 250);
+    /* BG-CLUE-500*/
+    --color-fourth-hover: rgb(59 130 246);
+
+    
+    --color-text-main: #000;
+    /* TEXT-SLATE-500 */
+    --color-text-second: rgb(100 116 139);
+}
+
+/* ==== REUSABLES ==== */
+
+.color-main{
+    background-color: var(--color-main);
+}
+
+.color-hover{
+    background-color: var(--color-hover);
+}
+
+.color-second{
+    background-color: var(--color-second);
+}
+
+.color-second:hover{
+    background-color: var(--color-third);
+}
+
+.color-third{
+    background-color: var(--color-third);
+}
+
+.color-active{
+    background-color: var(--color-active);
+}
+
+.color-fourth{
+    background-color: var(--color-fourth);
+}
+
+.color-fourth:hover{
+    background-color: var(--color-fourth-hover);
+}
+
+.color-text-main{
+    color: var(--color-text-main);
+}
+
+.color-text-second{
+    color: var(--color-text-second);
+}
+
+.color-text-third{
+    color: var(--color-fourth);
+}
+
+.color-dark{
+    background-color: var(--color-dark);
+}
+
+@media screen and (min-width:1024px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 10fr !important;
+    }
+
+}
+
+@media screen and (max-width:1023px) {
+    .container {
+        grid-template-rows: 1fr 10fr !important;
+    }
+}
+
+/* @media screen and (max-width:370px) {
+    body{
+        display: flex;
+        width: min-content !important;
+        background-color: red !important;
+    }
+
+} */
+
+.colorMode{
+    display: none;
+    bottom: -200%;
+}
+
+
+
+.active {
+    background-color: var(--color-active) !important;
+}
+
+.apply-opacity {
+    opacity: 1 !important;
+    z-index: 10;
+}
+
+.toggle-opacity {
+    opacity: 1 !important;
+}
+
+/* ========== PORTFOLIO ============ */
+
+.proyect {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+
+.proyect-img {
+    z-index: 5;
+    transition: .4s;
+}
+
+.proyect-overlay {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: .4s;
+    opacity: 0;
+    z-index: 20;
+}
+
+.proyect-overlay:before {
+    transform: translate(50%, -50%);
+}
+
+.proyect-overlay:after {
+    transform: translate(50%, -50%) rotate(90deg);
+}
+
+.proyect:hover .proyect-overlay {
+    opacity: .825;
+}
+
+.proyect:hover .proyect-img {
+    transform: scale(1.1);
+}
+
+.point-active{
+    background-color: var(--color-dark) !important;
+}
+
+.list-proyect-active{
+    color: rgb(59 130 246);
+}
+
+/* ================ ABOUT ME ============== */
+
+#skill{
+
+    height: 0;
+    display: none;
+  
+}
+
+#skill-arrow{
+ transition: .4s;
+}
+
+#list-skills{
+  
+}
+
+.skill-open #skill{
+    display: inline;
+    height: 100%;
+   
+}
+
+.skill-open #skill-arrow{
+    
+    transform: rotate(-180deg);
+}
+
+/* ========================== FOOTER ======================== */
+#button-send{
+    background-color: var(--fourth-color) !important;
+}
