@@ -27,6 +27,9 @@ textarea{
     resize: none !important;
 }
 
+footer{
+    min-height: 388px;
+}
 
 :root{
     --color-body: #fff; 
