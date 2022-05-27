@@ -1,10 +1,5 @@
 /* ====================== MODE DARK ======================= */
 
-
-
-
-
-
 // --color-text-main: #000;
 // /* TEXT-SLATE-500 */
 // --color-text-second: rgb(100 116 139);
@@ -137,8 +132,8 @@ const $image = document.querySelector("#image"),
     $proyecTitle = document.getElementById("proyect-title");
 
 const iterableProyectPages = [`Assets/img/pageNagatoro.jpeg`];
-const iterableProyectGames = [`Assets/img/Piedra,papel o tijera.PNG`, `Assets/img/FutballStady.PNG`];
-const proyectTitleGames = ["Rock, paper or scissors", "Football stadium"];
+const iterableProyectGames = [`Assets/img/GameChess.PNG`,`Assets/img/Piedra,papel o tijera.PNG`, `Assets/img/FutballStady.PNG`];
+const proyectTitleGames = ["Game Chess","Rock, paper or scissors", "Football stadium"];
 const proyectTitlePages = ["Page Nagatoro"];
 
 const initializeProyect = () => {
@@ -146,8 +141,8 @@ const initializeProyect = () => {
         $image.src = `Assets/img/pageHikomori.jpg`;
         $proyecTitle.innerHTML = "Page Hikomori";
     } else {
-        $image.src = `Assets/img/GameChess.PNG`;
-        $proyecTitle.innerHTML = "Game Chess";
+        $image.src = `Assets/img/Pokedex.PNG`;
+        $proyecTitle.innerHTML = "Pokedex/Poke API";
     }
 
     if (proyectValue == 'Pages') {
@@ -178,7 +173,7 @@ const nextPoint = () => {
             contPoint = 0;
         }
     } else {
-        if (contPoint == 3) {
+        if (contPoint == 4) {
             contPoint = 0;
         }
     }
@@ -251,6 +246,7 @@ const changeNumberPoints = () => {
     } else {
         $listPoints.innerHTML = `<li class="color-third rounded-full h-4 w-4 point-active" id="point"></li>
     <li class="color-third rounded-full h-4 w-4" id="point"></li>
+    <li class="color-third rounded-full h-4 w-4" id="point"></li>
     <li class="color-third rounded-full h-4 w-4" id="point"></li>`;
     }
 }
@@ -301,7 +297,6 @@ const openListSkills = e => {
         e.classList.add('skill-open');
     }
 }
-
 
 const listSkills = document.querySelectorAll('.list-skills');
 listSkills.forEach(e => {
