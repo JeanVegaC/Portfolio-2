@@ -129,7 +129,8 @@ let proyectValue = 'Pages',
     iteratorTitles;
 
 const $image = document.querySelector("#image"),
-    $proyecTitle = document.getElementById("proyect-title");
+    $proyecTitle = document.getElementById("proyect-title"),
+    $proyecDemo = document.getElementById('proyect-demo');
 
 const iterableProyectPages = [`Assets/img/pageNagatoro.jpeg`];
 const iterableProyectGames = [`Assets/img/GameChess.PNG`,`Assets/img/Piedra,papel o tijera.PNG`, `Assets/img/FutballStady.PNG`];
@@ -206,6 +207,9 @@ const changeProyect = () => {
     setTimeout(() => {
         let tmp = iteratorImages.next().value;
         $image.src = tmp;
+
+        /* CHANGE VIEW DEMO */
+        viewDemo(tmp);
         /* RESET CHANGE IMAGE PROYECTS */
         if (tmp == undefined) {
             initializeProyect();
@@ -234,6 +238,31 @@ $buttonNextProyect.addEventListener("click", () => {
     changeProyect();
 });
 
+/* CHANGE PROYECT DEMO */
+
+const viewDemo = (e)=>{
+    const $viewDemo = document.getElementById('proyect-demo');
+
+    if(proyectValue == 'Pages'){
+        if(e == undefined){
+            $viewDemo.href = '#hikari'
+        }else{
+            $viewDemo.href = '#Nagatoro'
+        }
+    }else{
+        if(e == undefined){
+            $viewDemo.href = '/pages/Pokedex/public/index.html';
+        }else if(e == 'Assets/img/GameChess.PNG'){
+            $viewDemo.href = '#ChessGame';
+        }else if(e == 'Assets/img/Piedra,papel o tijera.PNG'){
+            $viewDemo.href = '#PiedraPapelTijera';
+        }else{
+            $viewDemo.href = '#futballStady';
+        }
+    }
+}
+
+viewDemo();
 
 /* ===== CHANGE NUMBER POINTS IN LIST POINTS ===== */
 
@@ -256,7 +285,10 @@ const changeNumberPoints = () => {
 /* BUTTONS LIST PROYECTS PAGES/GAMES */
 const listProyect = document.querySelectorAll('#list-proyect');
 
-const changeListProyects = (e) => {
+const changeListProyects = async (e) => {
+    const $viewDemo = document.getElementById('proyect-demo');
+    $viewDemo.href = '/pages/Pokedex/public/index.html';
+
     listProyect.forEach(a => {
         a.classList.remove('list-proyect-active');
     })
@@ -264,10 +296,10 @@ const changeListProyects = (e) => {
     /* GET VALUE DATA FILTER OF SPAN LIST-PROYECT */
     proyectValue = e.dataset.filter;
 
-    initializeProyect();
+    await initializeProyect();
 
     /* CHANGE NUMBER OF POINTS */
-    changeNumberPoints();
+    await changeNumberPoints();
 
     /* RESET ACTIVE POINT POS */
     contPoint = 0;

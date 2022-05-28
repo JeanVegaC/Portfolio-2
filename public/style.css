@@ -4,35 +4,35 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     min-width: 280px;
     overflow-x: hidden;
     overflow-y: hidden;
-    
+
     transition: .4s;
 }
 
-body{
+body {
     min-width: 280px;
     overflow-x: hidden;
 
 }
 
-main{
+main {
     min-width: 280px;
     min-height: 870px;
 }
 
-textarea{
+textarea {
     resize: none !important;
 }
 
-footer{
+footer {
     min-height: 388px;
 }
 
-:root{
-    --color-body: #fff; 
+:root {
+    --color-body: #fff;
     --color-dark: #000;
 
     /* BG-SLATE-100 */
@@ -48,7 +48,7 @@ footer{
     /* BG-CLUE-500*/
     --color-fourth-hover: rgb(59 130 246);
 
-    
+
     --color-text-main: #000;
     /* TEXT-SLATE-500 */
     --color-text-second: rgb(100 116 139);
@@ -56,51 +56,51 @@ footer{
 
 /* ==== REUSABLES ==== */
 
-.color-main{
+.color-main {
     background-color: var(--color-main);
 }
 
-.color-hover{
+.color-hover {
     background-color: var(--color-hover);
 }
 
-.color-second{
+.color-second {
     background-color: var(--color-second);
 }
 
-.color-second:hover{
+.color-second:hover {
     background-color: var(--color-third);
 }
 
-.color-third{
+.color-third {
     background-color: var(--color-third);
 }
 
-.color-active{
+.color-active {
     background-color: var(--color-active);
 }
 
-.color-fourth{
+.color-fourth {
     background-color: var(--color-fourth);
 }
 
-.color-fourth:hover{
+.color-fourth:hover {
     background-color: var(--color-fourth-hover);
 }
 
-.color-text-main{
+.color-text-main {
     color: var(--color-text-main);
 }
 
-.color-text-second{
+.color-text-second {
     color: var(--color-text-second);
 }
 
-.color-text-third{
+.color-text-third {
     color: var(--color-fourth);
 }
 
-.color-dark{
+.color-dark {
     background-color: var(--color-dark);
 }
 
@@ -127,7 +127,7 @@ footer{
 
 } */
 
-.colorMode{
+.colorMode {
     display: none;
     bottom: -200%;
 }
@@ -189,43 +189,39 @@ footer{
     transform: scale(1.1);
 }
 
-.point-active{
+.point-active {
     background-color: var(--color-dark) !important;
 }
 
-.list-proyect-active{
+.list-proyect-active {
     color: rgb(59 130 246);
 }
 
 /* ================ ABOUT ME ============== */
 
-#skill{
+#skill {
 
     height: 0;
     display: none;
-  
+
 }
 
-#skill-arrow{
- transition: .4s;
+#skill-arrow {
+    transition: .4s;
 }
 
-#list-skills{
-  
-}
-
-.skill-open #skill{
+.skill-open #skill {
     display: inline;
     height: 100%;
-   
+
 }
 
-.skill-open #skill-arrow{
-    
+.skill-open #skill-arrow {
+
     transform: rotate(-180deg);
 }
 
 /* ========================== FOOTER ======================== */
-#button-send{
+#button-send {
     background-color: var(--fourth-color) !important;
 }
