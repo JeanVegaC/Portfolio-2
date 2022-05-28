@@ -138,12 +138,15 @@ const proyectTitleGames = ["Game Chess","Rock, paper or scissors", "Football sta
 const proyectTitlePages = ["Page Nagatoro"];
 
 const initializeProyect = () => {
+    const $viewDemo = document.getElementById('proyect-demo');
     if (proyectValue == 'Pages') {
         $image.src = `Assets/img/pageHikomori.jpg`;
+        $viewDemo.href = '#hikari';
         $proyecTitle.innerHTML = "Page Hikomori";
     } else {
         $image.src = `Assets/img/Pokedex.PNG`;
         $proyecTitle.innerHTML = "Pokedex/Poke API";
+        $viewDemo.href = '/pages/Pokedex/public/index.html';
     }
 
     if (proyectValue == 'Pages') {
@@ -261,8 +264,6 @@ const viewDemo = (e)=>{
         }
     }
 }
-
-viewDemo();
 
 /* ===== CHANGE NUMBER POINTS IN LIST POINTS ===== */
 
