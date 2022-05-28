@@ -146,7 +146,7 @@ const initializeProyect = () => {
     } else {
         $image.src = `Assets/img/Pokedex.PNG`;
         $proyecTitle.innerHTML = "Pokedex/Poke API";
-        $viewDemo.href = '/pages/Pokedex/public/index.html';
+        $viewDemo.href = 'pages/Pokedex/public/index.html';
     }
 
     if (proyectValue == 'Pages') {
