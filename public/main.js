@@ -6,10 +6,6 @@
 let colorMode = 'dark';
 const buttonChangeModeDark = document.getElementById('button-dark');
 
-buttonChangeModeDark.addEventListener('click', () => {
-    modeDark();
-})
-
 const modeDark = () => {
     const iconsMode = buttonChangeModeDark.childNodes;
 
@@ -68,6 +64,8 @@ const modeDark = () => {
 
 }
 
+buttonChangeModeDark.addEventListener('click',modeDark);
+
 /* =========================== NAV =============================== */
 
 const $linkButtons = document.querySelectorAll("#link-button"),
@@ -75,7 +73,7 @@ const $linkButtons = document.querySelectorAll("#link-button"),
     $buttonNextSection = document.querySelectorAll('#button-next-section');
 
 /* NRO SECTION FOR CHANGE SECTION WITH BUTTON NEXT */
-let nroSection = 1;
+let nroSection;
 
 /* APPLY COLOR LINK BUTTON  */
 $linkButtons.forEach((e, i) => {
@@ -132,12 +130,13 @@ const $image = document.querySelector("#image"),
     $proyecTitle = document.getElementById("proyect-title"),
     $proyecDemo = document.getElementById('proyect-demo');
 
-const iterableProyectPages = [`Assets/img/pageNagatoro.jpeg`];
-const iterableProyectGames = [`Assets/img/GameChess.PNG`,`Assets/img/Piedra,papel o tijera.PNG`, `Assets/img/FutballStady.PNG`];
-const proyectTitleGames = ["Game Chess","Rock, paper or scissors", "Football stadium"];
-const proyectTitlePages = ["Page Nagatoro"];
+const iterableProyectPages = [`Assets/img/pageNagatoro.jpeg`],
+    iterableProyectGames = [`Assets/img/GameChess.PNG`,`Assets/img/Piedra,papel o tijera.PNG`, `Assets/img/FutballStady.PNG`],
+    proyectTitleGames = ["Game Chess","Rock, paper or scissors", "Football stadium"],
+    proyectTitlePages = ["Page Nagatoro"];
 
 const initializeProyect = () => {
+    changeNumberPoints();
     const $viewDemo = document.getElementById('proyect-demo');
     if (proyectValue == 'Pages') {
         $image.src = `Assets/img/pageHikomori.jpg`;
@@ -158,7 +157,7 @@ const initializeProyect = () => {
     }
 }
 
-initializeProyect();
+
 
 
 /* ===== CHANGE POS POINT ACTIVE OF LIST POINTS ===== */
@@ -187,7 +186,6 @@ const nextPoint = () => {
     })
 
     $points[contPoint].classList.add('point-active');
-
 }
 
 /* ===== CHANGE PROYECT WITH BUTTON NEXT ===== */
@@ -207,18 +205,15 @@ const changeProyect = () => {
     }, 100);
 
     /* TIME OUT OF NEXT IMAGE PROYECT */
-    setTimeout(() => {
+
         let tmp = iteratorImages.next().value;
         $image.src = tmp;
 
         /* CHANGE VIEW DEMO */
         viewDemo(tmp);
         /* RESET CHANGE IMAGE PROYECTS */
-        if (tmp == undefined) {
-            initializeProyect();
-        }
-    }, 0);
-
+        if (tmp == undefined) initializeProyect();
+        
     /* CHANGE TITLE PROYECTS */
     let tmp2 = iteratorTitles.next().value;
     $proyecTitle.innerHTML = tmp2;
@@ -237,9 +232,9 @@ const changeProyect = () => {
     }
 }
 
-$buttonNextProyect.addEventListener("click", () => {
-    changeProyect();
-});
+$buttonNextProyect.addEventListener("click",changeProyect);
+
+
 
 /* CHANGE PROYECT DEMO */
 
@@ -269,17 +264,42 @@ const viewDemo = (e)=>{
 
 const $listPoints = document.getElementById('list-points');
 
+const createListPoints = e=>{
+        
+    while($listPoints.firstChild){
+        $listPoints.removeChild($listPoints.firstChild);
+    }
+
+    const $fragment = document.createDocumentFragment();
+    for(let i=0;i<e;i++){
+        const $li = document.createElement('li');
+        $li.classList.add('color-third','rounded-full','h-4','w-4');
+        
+        $li.id = 'point';
+        if(i==0) $li.classList.add('point-active');
+        $fragment.appendChild($li);
+    }
+    $listPoints.appendChild($fragment);
+}
+
 const changeNumberPoints = () => {
-    if (proyectValue == 'Pages') {
-        $listPoints.innerHTML = `<li class="color-third rounded-full h-4 w-4 point-active" id="point"></li>
-    <li class="color-third rounded-full h-4 w-4" id="point"></li>`;
+
+    if (proyectValue == 'Pages'){
+        createListPoints(2);
+
+    //     $listPoints.innerHTML = `<li class="color-third rounded-full h-4 w-4 point-active" id="point"></li>
+    // <li class="color-third rounded-full h-4 w-4" id="point"></li>`;
     } else {
-        $listPoints.innerHTML = `<li class="color-third rounded-full h-4 w-4 point-active" id="point"></li>
-    <li class="color-third rounded-full h-4 w-4" id="point"></li>
-    <li class="color-third rounded-full h-4 w-4" id="point"></li>
-    <li class="color-third rounded-full h-4 w-4" id="point"></li>`;
+        createListPoints(4);
+
+    //     $listPoints.innerHTML = `<li class="color-third rounded-full h-4 w-4 point-active" id="point"></li>
+    // <li class="color-third rounded-full h-4 w-4" id="point"></li>
+    // <li class="color-third rounded-full h-4 w-4" id="point"></li>
+    // <li class="color-third rounded-full h-4 w-4" id="point"></li>`;
     }
 }
+
+
 
 /* ===== CHANGE PROYECT LIST TO PAGES OR GAMES ===== */
 
@@ -298,9 +318,6 @@ const changeListProyects = async (e) => {
     proyectValue = e.dataset.filter;
 
     await initializeProyect();
-
-    /* CHANGE NUMBER OF POINTS */
-    await changeNumberPoints();
 
     /* RESET ACTIVE POINT POS */
     contPoint = 0;
@@ -349,4 +366,6 @@ links.forEach((e,i)=> {
         changeSectionNext(nroSection);
         nroSection += 1;
     });
-})
+});
+
+initializeProyect();
