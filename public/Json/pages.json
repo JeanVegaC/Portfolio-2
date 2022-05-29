@@ -1,0 +1,13 @@
+[
+    {
+        "img":"Assets/img/pageHikomori.jpg",
+        "url":"pages/PageHikomori/public/index.html",
+        "title":"Page Hikomori"
+    },
+    {
+        "img":"Assets/img/pageNagatoro.jpeg",
+        "url":"pages/PageNagatoro/public/index.html",
+        "title":"Page Nagatoro"
+    }
+]   
+

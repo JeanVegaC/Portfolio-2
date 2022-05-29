@@ -128,7 +128,8 @@ let proyectValue = 'Pages',
 
 const $image = document.querySelector("#image"),
     $proyecTitle = document.getElementById("proyect-title"),
-    $proyecDemo = document.getElementById('proyect-demo');
+    $proyecDemo = document.getElementById('proyect-demo'),
+    $viewDemo = document.getElementById('proyect-demo');
 
 const iterableProyectPages = [`Assets/img/pageNagatoro.jpeg`],
     iterableProyectGames = [`Assets/img/GameChess.PNG`,`Assets/img/Piedra,papel o tijera.PNG`, `Assets/img/FutballStady.PNG`],
@@ -156,9 +157,6 @@ const initializeProyect = () => {
         iteratorTitles = proyectTitleGames[Symbol.iterator]();
     }
 }
-
-
-
 
 /* ===== CHANGE POS POINT ACTIVE OF LIST POINTS ===== */
 
@@ -192,49 +190,92 @@ const nextPoint = () => {
 
 const $buttonNextProyect = document.querySelector("#button-next");
 
-const changeProyect = () => {
+// const changeProyect = () => {
+//     /* CHANGE NEXT POINT */
+//     nextPoint(contPoint);
+
+//     /* REMOVE OPACITY OF IMAGE PROYECT */
+//     $image.classList.remove("toggle-opacity");
+
+//     /* TIME OUT OF ADD OPACITY IMAGE PROYECT */
+//     setTimeout(() => {
+//         $image.classList.add("toggle-opacity");
+//     }, 100);
+
+//     /* TIME OUT OF NEXT IMAGE PROYECT */
+
+//         let tmp = iteratorImages.next().value;
+//         $image.src = tmp;
+
+//         /* CHANGE VIEW DEMO */
+//         viewDemo(tmp);
+//         /* RESET CHANGE IMAGE PROYECTS */
+//         if (tmp == undefined) initializeProyect();
+        
+//     /* CHANGE TITLE PROYECTS */
+//     let tmp2 = iteratorTitles.next().value;
+//     $proyecTitle.innerHTML = tmp2;
+
+//     /* RESET CHANGE TITLE PROYECTS */
+//     if (tmp2 == undefined) {
+//         if (proyectValue == 'Pages') {
+//             $proyecTitle.innerHTML = "Page Hikomori";
+//             iteratorTitles = proyectTitlePages[Symbol.iterator]();
+//             point = 0;
+//         } else {
+//             $proyecTitle.innerHTML = "Chess game";
+//             iteratorTitles = proyectTitleGames[Symbol.iterator]();
+//             point = 0;
+//         }
+//     }
+// }
+
+let proyect = 0;
+
+const changeProyect = async ()=>{
+    
+    proyect++;
+    
+    if(proyectValue == 'Pages'){
+        if(proyect == 2){
+            proyect = 0;
+        }
+    }else{
+        if(proyect == 4){
+            proyect = 0;
+        }
+    }
+    
+    
     /* CHANGE NEXT POINT */
     nextPoint(contPoint);
-
+    
     /* REMOVE OPACITY OF IMAGE PROYECT */
     $image.classList.remove("toggle-opacity");
-
+    
     /* TIME OUT OF ADD OPACITY IMAGE PROYECT */
     setTimeout(() => {
         $image.classList.add("toggle-opacity");
     }, 100);
-
+    
     /* TIME OUT OF NEXT IMAGE PROYECT */
-
-        let tmp = iteratorImages.next().value;
-        $image.src = tmp;
-
-        /* CHANGE VIEW DEMO */
-        viewDemo(tmp);
-        /* RESET CHANGE IMAGE PROYECTS */
-        if (tmp == undefined) initializeProyect();
-        
-    /* CHANGE TITLE PROYECTS */
-    let tmp2 = iteratorTitles.next().value;
-    $proyecTitle.innerHTML = tmp2;
-
-    /* RESET CHANGE TITLE PROYECTS */
-    if (tmp2 == undefined) {
-        if (proyectValue == 'Pages') {
-            $proyecTitle.innerHTML = "Page Hikomori";
-            iteratorTitles = proyectTitlePages[Symbol.iterator]();
-            point = 0;
-        } else {
-            $proyecTitle.innerHTML = "Chess game";
-            iteratorTitles = proyectTitleGames[Symbol.iterator]();
-            point = 0;
+    let data;
+    
+        if(proyectValue == 'Pages'){
+             data = await fetch("./Json/pages.json");
+        }else{
+             data = await fetch("./Json/games.json");
         }
-    }
-}
+        
+        data = await data.json();;
+        
+        $image.src = data[proyect].img;
+        $proyecTitle.innerHTML = data[proyect].title;
+        $viewDemo.href = data[proyect].url;
+        
+}    
 
 $buttonNextProyect.addEventListener("click",changeProyect);
-
-
 
 /* CHANGE PROYECT DEMO */
 
@@ -286,20 +327,9 @@ const changeNumberPoints = () => {
 
     if (proyectValue == 'Pages'){
         createListPoints(2);
-
-    //     $listPoints.innerHTML = `<li class="color-third rounded-full h-4 w-4 point-active" id="point"></li>
-    // <li class="color-third rounded-full h-4 w-4" id="point"></li>`;
-    } else {
-        createListPoints(4);
-
-    //     $listPoints.innerHTML = `<li class="color-third rounded-full h-4 w-4 point-active" id="point"></li>
-    // <li class="color-third rounded-full h-4 w-4" id="point"></li>
-    // <li class="color-third rounded-full h-4 w-4" id="point"></li>
-    // <li class="color-third rounded-full h-4 w-4" id="point"></li>`;
-    }
+    }else{createListPoints(4);}
+    
 }
-
-
 
 /* ===== CHANGE PROYECT LIST TO PAGES OR GAMES ===== */
 
@@ -369,3 +399,4 @@ links.forEach((e,i)=> {
 });
 
 initializeProyect();
+

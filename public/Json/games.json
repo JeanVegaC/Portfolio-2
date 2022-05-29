@@ -1,0 +1,22 @@
+    [
+    {
+        "img":"Assets/img/Pokedex.PNG",
+        "url":"pages/Pokedex/public/index.html",
+        "title":"Pokedex"
+    },
+    {
+        "img":"Assets/img/GameChess.PNG",
+        "url":"pages/GameChess/public/index.html",
+        "title":"Game Chess"
+    },
+    {
+        "img":"Assets/img/Piedra,papel o tijera.PNG",
+        "url":"pages/RockPaperScisor/public/index.html",
+        "title":"Rock,Paper and Scisor"
+    },
+    {
+        "img":"Assets/img/FutballStady.PNG",
+        "url":"pages/FutballStady/public/index.html",
+        "title":"Futball Stady"
+    }
+]   
