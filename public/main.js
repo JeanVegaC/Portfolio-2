@@ -346,7 +346,7 @@ const changeListProyects = async (e) => {
     e.classList.add('list-proyect-active');
     /* GET VALUE DATA FILTER OF SPAN LIST-PROYECT */
     proyectValue = e.dataset.filter;
-
+    proyect = 0;
     await initializeProyect();
 
     /* RESET ACTIVE POINT POS */
