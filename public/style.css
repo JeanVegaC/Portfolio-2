@@ -23,6 +23,11 @@ main {
     min-height: 870px;
 }
 
+img{
+    height:100%;
+    width:100%;
+}
+
 textarea {
     resize: none !important;
 }
@@ -189,12 +194,30 @@ footer {
     transform: scale(1.1);
 }
 
+
 .point-active {
     background-color: var(--color-dark) !important;
 }
 
-.list-proyect-active {
+.span-proyect-active {
     color: rgb(59 130 246);
+}
+
+
+.list-proyect-active{
+    display:flex !important;
+}
+
+.proyect-active{
+    display:flex !important;
+}
+
+#proyect{
+    height:400px
+}
+
+#proyect img{
+    object-fit:cover;
 }
 
 /* ================ ABOUT ME ============== */

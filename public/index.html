@@ -82,12 +82,31 @@
                     <!-- COLUMN 2 -->
                     <div class="flex flex-col justify-center items-center h-4/5 w-full lg:h-full lg:w-1/2">
                         <div class="flex justify-evenly my-3 color-text-second w-full">
-                            <span class="py-1 px-5 text-lg duration-200 cursor-pointer list-proyect-active "
-                                data-filter="Pages" id="list-proyect"><i class="uil uil-file"></i>Pages</span>
-                            <span class="py-1 px-5 text-lg duration-200 cursor-pointer" data-filter="Games" id="list-proyect"><i class="uil uil-play"></i>Games</span>
+                            <span class="py-1 px-5 text-lg duration-200 cursor-pointer span-proyect-active " data-filter="Pages" id="span-proyect"><i class="uil uil-file"></i>Pages</span>
+                            <span class="py-1 px-5 text-lg duration-200 cursor-pointer" data-filter="Games" id="span-proyect"><i class="uil uil-play"></i>Games</span>
                         </div>
                         <div class="proyect flex w-4/5 h-3/5 lg:h-2/5 lg:w-4/5 relative">
-                            <img class="proyect-img object-cover w-full duration-200 opacity-0 toggle-opacity" src="" alt="" id="image">
+                            <div class="proyect-img  w-full duration-200 opacity-0 toggle-opacity">
+                                <ul class="list-proyect-active hidden " id="list-proyect">
+                                    <li class="proyect-active w-full hidden" id="proyect">
+                                        <img class="" src="Assets/img/pageHikomori.jpg" alt="">
+                                    </li>
+                                    <li class="w-full hidden" id="proyect">
+                                        <img class="" src="Assets/img/pageNagatoro.jpeg" alt="">
+                                    </li>
+                                </ul>
+                                <ul class="hidden" id="list-proyect">
+                                    <li class="w-full hidden" id="proyect">
+                                        <img class="" src="Assets/img/Pokedex.PNG" alt="">
+                                    </li>
+                                    <li class="w-full hidden" id="proyect">
+                                        <img src="Assets/img/GameChess.PNG" alt="">
+                                    </li>
+                                    <li class="w-full hidden" id="proyect">
+                                        <img src="Assets/img/Piedra,papel o tijera.PNG" alt="">
+                                    </li">
+                                </ul>
+                            </div>
                             <div class="color-main proyect-overlay">
                                 <div class="proyect-description ml-4 mb-4">
                                     <h3 class="text-4xl font-serif" id="proyect-title">Page Hikomori</h3>
@@ -95,9 +114,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="flex justify-evenly mt-5 w-full" id="list-points">
-                            
-                        </ul>
+                        <ul class="flex justify-evenly mt-5 w-full" id="list-points"></ul>
                         <div class="color-text-main text-center h-8 lg:h-12 w-full text-6xl mt-2">
                             <i class="uil uil-angle-right-b w-full duration-200 hover:text-slate-300 cursor-pointer"
                                 id="button-next"></i>

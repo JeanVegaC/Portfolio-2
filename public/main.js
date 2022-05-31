@@ -122,41 +122,7 @@ const changeSectionNext = n => {
 /* ===== INITIALIZE LIST PROYECTS WITH IMAGES AND TITLES ===== */
 
 /* PROYECT VALUE FOR LIST OF PROYECTS */
-let proyectValue = 'Pages',
-    iteratorImages,
-    iteratorTitles;
-
-const $image = document.querySelector("#image"),
-    $proyecTitle = document.getElementById("proyect-title"),
-    $proyecDemo = document.getElementById('proyect-demo'),
-    $viewDemo = document.getElementById('proyect-demo');
-
-const iterableProyectPages = [`Assets/img/pageNagatoro.jpeg`],
-    iterableProyectGames = [`Assets/img/GameChess.PNG`,`Assets/img/Piedra,papel o tijera.PNG`, `Assets/img/FutballStady.PNG`],
-    proyectTitleGames = ["Game Chess","Rock, paper or scissors", "Football stadium"],
-    proyectTitlePages = ["Page Nagatoro"];
-
-const initializeProyect = () => {
-    changeNumberPoints();
-    const $viewDemo = document.getElementById('proyect-demo');
-    if (proyectValue == 'Pages') {
-        $image.src = `Assets/img/pageHikomori.jpg`;
-        $viewDemo.href = '#hikari';
-        $proyecTitle.innerHTML = "Page Hikomori";
-    } else {
-        $image.src = `Assets/img/Pokedex.PNG`;
-        $proyecTitle.innerHTML = "Pokedex/Poke API";
-        $viewDemo.href = 'pages/Pokedex/public/index.html';
-    }
-
-    if (proyectValue == 'Pages') {
-        iteratorImages = iterableProyectPages[Symbol.iterator]();
-        iteratorTitles = proyectTitlePages[Symbol.iterator]();
-    } else {
-        iteratorImages = iterableProyectGames[Symbol.iterator]();
-        iteratorTitles = proyectTitleGames[Symbol.iterator]();
-    }
-}
+let proyectValue = 'Pages';
 
 /* ===== CHANGE POS POINT ACTIVE OF LIST POINTS ===== */
 
@@ -174,7 +140,7 @@ const nextPoint = () => {
             contPoint = 0;
         }
     } else {
-        if (contPoint == 4) {
+        if (contPoint == 3) {
             contPoint = 0;
         }
     }
@@ -190,174 +156,158 @@ const nextPoint = () => {
 
 const $buttonNextProyect = document.querySelector("#button-next");
 
-// const changeProyect = () => {
-//     /* CHANGE NEXT POINT */
-//     nextPoint(contPoint);
-
-//     /* REMOVE OPACITY OF IMAGE PROYECT */
-//     $image.classList.remove("toggle-opacity");
-
-//     /* TIME OUT OF ADD OPACITY IMAGE PROYECT */
-//     setTimeout(() => {
-//         $image.classList.add("toggle-opacity");
-//     }, 100);
-
-//     /* TIME OUT OF NEXT IMAGE PROYECT */
-
-//         let tmp = iteratorImages.next().value;
-//         $image.src = tmp;
-
-//         /* CHANGE VIEW DEMO */
-//         viewDemo(tmp);
-//         /* RESET CHANGE IMAGE PROYECTS */
-//         if (tmp == undefined) initializeProyect();
-        
-//     /* CHANGE TITLE PROYECTS */
-//     let tmp2 = iteratorTitles.next().value;
-//     $proyecTitle.innerHTML = tmp2;
-
-//     /* RESET CHANGE TITLE PROYECTS */
-//     if (tmp2 == undefined) {
-//         if (proyectValue == 'Pages') {
-//             $proyecTitle.innerHTML = "Page Hikomori";
-//             iteratorTitles = proyectTitlePages[Symbol.iterator]();
-//             point = 0;
-//         } else {
-//             $proyecTitle.innerHTML = "Chess game";
-//             iteratorTitles = proyectTitleGames[Symbol.iterator]();
-//             point = 0;
-//         }
-//     }
-// }
-
-let proyect = 0;
-
-const changeProyect = async ()=>{
-    
-    proyect++;
-    
-    if(proyectValue == 'Pages'){
-        if(proyect == 2){
-            proyect = 0;
-        }
-    }else{
-        if(proyect == 4){
-            proyect = 0;
-        }
-    }
-    
-    
-    /* CHANGE NEXT POINT */
-    nextPoint(contPoint);
-    
-    /* REMOVE OPACITY OF IMAGE PROYECT */
-    $image.classList.remove("toggle-opacity");
-    
-    /* TIME OUT OF ADD OPACITY IMAGE PROYECT */
-    setTimeout(() => {
-        $image.classList.add("toggle-opacity");
-    }, 100);
-    
-    /* TIME OUT OF NEXT IMAGE PROYECT */
-    let data;
-    
-        if(proyectValue == 'Pages'){
-             data = await fetch("./Json/pages.json");
-        }else{
-             data = await fetch("./Json/games.json");
-        }
-        
-        data = await data.json();;
-        
-        $image.src = data[proyect].img;
-        $proyecTitle.innerHTML = data[proyect].title;
-        $viewDemo.href = data[proyect].url;
-        
-}    
-
-$buttonNextProyect.addEventListener("click",changeProyect);
-
 /* CHANGE PROYECT DEMO */
 
-const viewDemo = (e)=>{
+const viewDemo = (e) => {
     const $viewDemo = document.getElementById('proyect-demo');
 
-    if(proyectValue == 'Pages'){
-        if(e == undefined){
+    if (proyectValue == 'Pages') {
+        if (e == undefined) {
             $viewDemo.href = '#hikari'
-        }else{
+        } else {
             $viewDemo.href = '#Nagatoro'
         }
-    }else{
-        if(e == undefined){
+    } else {
+        if (e == undefined) {
             $viewDemo.href = '/pages/Pokedex/public/index.html';
-        }else if(e == 'Assets/img/GameChess.PNG'){
+        } else if (e == 'Assets/img/GameChess.PNG') {
             $viewDemo.href = '#ChessGame';
-        }else if(e == 'Assets/img/Piedra,papel o tijera.PNG'){
+        } else if (e == 'Assets/img/Piedra,papel o tijera.PNG') {
             $viewDemo.href = '#PiedraPapelTijera';
-        }else{
+        } else {
             $viewDemo.href = '#futballStady';
         }
     }
 }
 
+viewDemo();
+
 /* ===== CHANGE NUMBER POINTS IN LIST POINTS ===== */
 
 const $listPoints = document.getElementById('list-points');
 
-const createListPoints = e=>{
-        
-    while($listPoints.firstChild){
-        $listPoints.removeChild($listPoints.firstChild);
-    }
+const createListPoints = e => {
+
+    // while ($listPoints.firstChild) {
+    //     $listPoints.removeChild($listPoints.firstChild);
+    // }
+    $listPoints.innerHTML ="";
 
     const $fragment = document.createDocumentFragment();
-    for(let i=0;i<e;i++){
+    for (let i = 0; i < e; i++) {
         const $li = document.createElement('li');
-        $li.classList.add('color-third','rounded-full','h-4','w-4');
-        
+        $li.classList.add('color-third', 'rounded-full', 'h-4', 'w-4');
+
         $li.id = 'point';
-        if(i==0) $li.classList.add('point-active');
+        if (i == 0) $li.classList.add('point-active');
         $fragment.appendChild($li);
     }
     $listPoints.appendChild($fragment);
 }
 
 const changeNumberPoints = () => {
-
-    if (proyectValue == 'Pages'){
+    if (proyectValue == 'Pages') {
         createListPoints(2);
-    }else{createListPoints(4);}
-    
+    } else { createListPoints(3); }
+
 }
+changeNumberPoints();
+
+/* ===== CHANGE PROYECT ====== */
+
+let proyect = 1;
+const $proyect = document.querySelectorAll('#proyect');
+const $proyectTitle = document.getElementById('proyect-title');
+const changeProyect = () => {
+
+    viewDemo();
+
+    if (proyectValue == 'Pages') {
+        if (proyect == 2) {
+            proyect = 0;
+        }
+    } else {
+        if (proyect == 5) {
+            proyect = 2;
+        }
+    }
+
+    switch (proyect) {
+        case 0: $proyectTitle.textContent = 'Page hikomori';
+            break;
+        case 1: $proyectTitle.textContent = 'Page Nagatoro';
+            break;
+        case 2: $proyectTitle.textContent = 'Pokedex / PokeAPI';
+            break;
+        case 3: $proyectTitle.textContent = 'Game Chess';
+            break;
+        case 4: $proyectTitle.textContent = 'Rock,Papper and scisor';
+            break;
+        default: $proyectTitle.textContent = 'Loading';
+            break;
+    }
+
+
+    $proyect.forEach(e => {
+        e.classList.remove('proyect-active');
+    });
+    $proyect[proyect].classList.add('proyect-active');
+    proyect++;
+
+    nextPoint();
+}
+
+$buttonNextProyect.addEventListener("click", changeProyect);
+
+
 
 /* ===== CHANGE PROYECT LIST TO PAGES OR GAMES ===== */
 
 /* BUTTONS LIST PROYECTS PAGES/GAMES */
-const listProyect = document.querySelectorAll('#list-proyect');
+const spanProyect = document.querySelectorAll('#span-proyect');
 
-const changeListProyects = async (e) => {
-    const $viewDemo = document.getElementById('proyect-demo');
-    $viewDemo.href = '/pages/Pokedex/public/index.html';
+const changeListProyects = e => {
+    
+    
+    const spanClicked = e.dataset.filter;
 
-    listProyect.forEach(a => {
-        a.classList.remove('list-proyect-active');
+    const listProyect = document.querySelectorAll('#list-proyect');
+    listProyect.forEach(e => {
+        e.classList.remove('list-proyect-active');
     })
-    e.classList.add('list-proyect-active');
-    /* GET VALUE DATA FILTER OF SPAN LIST-PROYECT */
-    proyectValue = e.dataset.filter;
-    proyect = 0;
-    await initializeProyect();
 
-    /* RESET ACTIVE POINT POS */
-    contPoint = 0;
+    const spanProyect = document.querySelectorAll('#span-proyect');
+    spanProyect.forEach(e => {
+        e.classList.remove('span-proyect-active');
+    })
+    e.classList.add('span-proyect-active')
+
+    if (spanClicked == 'Pages') {
+        proyectValue = 'Pages';
+        contPoint = 0;
+        $proyectTitle.textContent = 'Page hikomori';
+        listProyect[0].classList.add('list-proyect-active');
+        $proyect[0].classList.add('proyect-active');
+        proyect = 1;
+    } else {
+        proyectValue = 'Games';
+        contPoint = 0;
+        $proyectTitle.textContent = 'Pokedex / PokeAPI';
+        proyect = 3;
+        $proyect[2].classList.add('proyect-active');
+        listProyect[1].classList.add('list-proyect-active');
+    }
+    viewDemo();
+    changeNumberPoints();
+
 }
 
 /* EVENT FOR CHANGE OF PAGES OR GAMES */
-listProyect.forEach(e => {
+spanProyect.forEach(e => {
+
     e.addEventListener('click', () => {
         changeListProyects(e);
-    })
+    });
 });
 
 
@@ -397,6 +347,4 @@ links.forEach((e,i)=> {
         nroSection += 1;
     });
 });
-
-initializeProyect();
 
