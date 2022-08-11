@@ -237,7 +237,6 @@ footer {
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
     padding:0 30px 0 60px;
     /* height: 100px !important; */
     /* Center slide text vertically */
@@ -342,6 +341,17 @@ footer {
     flex-direction:column;
   }  
   
+}
+
+@media screen and (max-width:470px){
+    .testimonial-data{
+        height: 30%;
+        flex-direction: column;
+    }
+
+    .testimonial-stars{
+        text-align: end;
+    }
 }
 
 .testimonial-data{
