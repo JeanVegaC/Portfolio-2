@@ -23,9 +23,9 @@ main {
     min-height: 870px;
 }
 
-img{
-    height:100%;
-    width:100%;
+img {
+    height: 100%;
+    width: 100%;
 }
 
 textarea {
@@ -204,20 +204,95 @@ footer {
 }
 
 
-.list-proyect-active{
-    display:flex !important;
+.list-proyect-active {
+    display: flex !important;
 }
 
-.proyect-active{
-    display:flex !important;
+.proyect-active {
+    display: flex !important;
 }
 
-#proyect{
-    height:400px
+#proyect {
+    height: 400px
 }
 
-#proyect img{
-    object-fit:cover;
+#proyect img {
+    object-fit: cover;
+}
+
+/* SWIPER */
+
+.swiper {
+    overflow: hidden;
+    height: 300px !important;
+}
+
+.swiper-wrapper {
+    /* height: 300px !important; */
+    display: flex;
+    align-items: center;
+
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    padding:0 30px 0 60px;
+    /* height: 100px !important; */
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
+
+/* .swiper-slide img {
+    display: block;
+    height:300px;
+    object-fit: cover;
+  } */
+
+
+
+
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    content: '';
+    display: none;
+}
+
+.swiper-button-next {
+    top: 13rem !important;
+    left: 1.2rem !important;
+}
+
+.swiper-button-prev {
+    bottom: -5rem !important;
+    left: 1.2rem !important;
+}
+
+
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: -2.5rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination-bullet {
+    outline: none;
 }
 
 /* ================ ABOUT ME ============== */
@@ -244,6 +319,56 @@ footer {
     transform: rotate(-180deg);
 }
 
+/* ================= TESTIMONIAL =============== */
+
+@media screen and (max-width:320px){
+    .swiper-slide{
+        padding:0 10px 0 20px;
+    }
+
+    .swiper-button-next {
+        left: .2rem !important;
+    }
+    
+    .swiper-button-prev {
+        left: .2rem !important;
+    }
+    
+}
+
+@media screen and (max-width:1310px){
+  .testimonial-container{
+    display:flex;
+    flex-direction:column;
+  }  
+  
+}
+
+.testimonial-data{
+    justify-content: space-between;
+    padding:0 10px;
+    margin:0 0 10px 0;
+}
+
+.data-client{
+    align-items:center;
+}
+
+.data-client img{
+    height:64px;
+    width:64px;
+}
+    
+
+.data-client div{
+    /* width: 70%; */
+    text-align:start;
+    margin: 0 0 0 10px;
+}
+
+.data-client div span{
+    color:#666;
+}
 /* ========================== FOOTER ======================== */
 #button-send {
     background-color: var(--fourth-color) !important;

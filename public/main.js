@@ -73,8 +73,7 @@ const $linkButtons = document.querySelectorAll("#link-button"),
     $buttonNextSection = document.querySelectorAll('#button-next-section');
 
 /* NRO SECTION FOR CHANGE SECTION WITH BUTTON NEXT */
-let nroSection;
-
+let nroSection =1;
 /* APPLY COLOR LINK BUTTON  */
 $linkButtons.forEach((e, i) => {
     e.addEventListener("click", () => {
@@ -98,7 +97,9 @@ const applyColorLink = (e, i) => {
 /* NEXT SECTION WITH BUTTON NEXT */
 $buttonNextSection.forEach(e => {
     e.addEventListener('click', () => {
-
+        if(nroSection == 4){
+            nroSection = 0;
+        }
         changeSectionNext(nroSection);
         nroSection += 1;
     });
@@ -309,6 +310,30 @@ spanProyect.forEach(e => {
         changeListProyects(e);
     });
 });
+
+/* SWIPER */
+
+let swiper = new Swiper(".mySwiper", {
+    loop:true,
+    grabCursor:true,
+
+    navigation:{
+        nextEl:'.swiper-button-next',
+        prevEl:'.swiper-button-prev',
+    },
+    direction: "vertical",
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets:true,
+    },
+    // breakpoints:{
+    //     568:{
+    //         slidesPerView:2,
+    //     }
+    // }
+    
+  });
 
 
 /* ====================== ABOUT ME =========================== */
