@@ -163,25 +163,24 @@ const viewDemo = (e) => {
     const $viewDemo = document.getElementById('proyect-demo');
 
     if (proyectValue == 'Pages') {
-        if (e == undefined) {
+        if (e == 0) {
             $viewDemo.href = '#hikari'
         } else {
             $viewDemo.href = '#Nagatoro'
         }
     } else {
-        if (e == undefined) {
-            $viewDemo.href = '/pages/Pokedex/public/index.html';
-        } else if (e == 'Assets/img/GameChess.PNG') {
-            $viewDemo.href = '#ChessGame';
-        } else if (e == 'Assets/img/Piedra,papel o tijera.PNG') {
-            $viewDemo.href = '#PiedraPapelTijera';
+        if (e == 2) {
+            $viewDemo.href = './pages/Pokedex/index.html';
+        } else if (e == 3) {
+            $viewDemo.href = './pages/ChessGame/index.html';
+        } else if (e == 4) {
+            $viewDemo.href = './pages/RockPaperAndScisor/index.html';
         } else {
-            $viewDemo.href = '#futballStady';
+            $viewDemo.href = '#random';
         }
     }
+    
 }
-
-viewDemo();
 
 /* ===== CHANGE NUMBER POINTS IN LIST POINTS ===== */
 
@@ -216,12 +215,12 @@ changeNumberPoints();
 
 /* ===== CHANGE PROYECT ====== */
 
-let proyect = 1;
+let proyect = 0;
 const $proyect = document.querySelectorAll('#proyect');
 const $proyectTitle = document.getElementById('proyect-title');
 const changeProyect = () => {
-
-    viewDemo();
+    proyect++;
+    viewDemo(proyect);
 
     if (proyectValue == 'Pages') {
         if (proyect == 2) {
@@ -233,6 +232,7 @@ const changeProyect = () => {
         }
     }
 
+    
     switch (proyect) {
         case 0: $proyectTitle.textContent = 'Page hikomori';
             break;
@@ -253,8 +253,7 @@ const changeProyect = () => {
         e.classList.remove('proyect-active');
     });
     $proyect[proyect].classList.add('proyect-active');
-    proyect++;
-
+    
     nextPoint();
 }
 
@@ -289,16 +288,17 @@ const changeListProyects = e => {
         $proyectTitle.textContent = 'Page hikomori';
         listProyect[0].classList.add('list-proyect-active');
         $proyect[0].classList.add('proyect-active');
-        proyect = 1;
+        proyect = 0;
     } else {
         proyectValue = 'Games';
         contPoint = 0;
         $proyectTitle.textContent = 'Pokedex / PokeAPI';
-        proyect = 3;
+        proyect = 2;
         $proyect[2].classList.add('proyect-active');
         listProyect[1].classList.add('list-proyect-active');
     }
-    viewDemo();
+
+    viewDemo(proyect);
     changeNumberPoints();
 
 }

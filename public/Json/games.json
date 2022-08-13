@@ -1,7 +1,7 @@
     [
     {
         "img":"Assets/img/Pokedex.PNG",
-        "url":"pages/Pokedex/public/index.html",
+        "url":"pages/Pokedex/index.html",
         "title":"Pokedex"
     },
     {
@@ -18,5 +18,10 @@
         "img":"Assets/img/FutballStady.PNG",
         "url":"pages/FutballStady/public/index.html",
         "title":"Futball Stady"
+    },
+    {
+        "img":"https://static.wikia.nocookie.net/nazonokanojox/images/1/18/UrabeMikoto2.png/revision/latest?cb=20161215001327&path-prefix=es",
+        "url":"pages/RockPaperScisor/public/index.html",
+        "title":"Page urabe mikoto"
     }
 ]   
