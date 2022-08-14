@@ -52,16 +52,16 @@ const showCard = (n,NroCard)=>{
 
                 if(e.target.src.includes('Papel')){
                     title = 'PAPEL';
-                    console.log(title)
-                    changeTitle(' ')
+                    changeTitle('asd')
                 }else if(e.target.src.includes('Piedra')){
                     title = 'PIEDRA';
-                    console.log(title)
-                    changeTitle(' ')
-                }else{
+                    changeTitle('asd')
+                }else if(e.target.src.includes('Tijera')){
                     title = 'TIJERA';
-                    console.log(title)
-                    changeTitle(' ')
+                    changeTitle('asd');
+                }else{
+                    title = 'BUGGED';
+                    changeTitle('asd')
                 }
                 setTimeout(()=>{
                     let tmp = title;
@@ -116,7 +116,6 @@ const play = ()=>{
 /* Procedimiento para hallar el ganador */
 const winner = ()=>{
     const img = document.getElementsByTagName('img');
-    console.log(img[player2+4]);
 
     setTimeout(() => {
 
@@ -145,13 +144,13 @@ const winner = ()=>{
 
 
 
+
     }, 1000);
     
 }
 
 /* funcion para mostrar al ganador */
 const showWinner = (n)=>{
-    console.log(n);
     let tmp = n;
 
     
@@ -176,7 +175,6 @@ const showWinner = (n)=>{
         winner.classList.add('show-winner');
 
     }, 1000);
-    console.log('Entre')
 }
 
 /* Funcion para revelar las cartas del rival */
@@ -196,7 +194,9 @@ const revealCard = ()=>{
         listNum.push(6);
     }, Math.random()*200);
     
+    
     setTimeout(() => {
+    
     img[listNum[0]].src = 'assets/img/Piedra.jpg.png';
     img[listNum[1]].src = 'assets/img/Papel.jpg.png';
     img[listNum[2]].src = 'assets/img/Tijera.jpg.png';
@@ -205,19 +205,20 @@ const revealCard = ()=>{
     img[listNum[1]].dataset.value = 'PAPEL';
     img[listNum[2]].dataset.value = 'TIJERA';
     
-    
     }, 1000);
     
     winner();
-    console.log(player1);
-    console.log(player2);
     setTimeout(()=>{
-        let tmp = title;
+        const cardActive = document.querySelectorAll('.active');
 
-        if(player2 == 0){
+        console.log(cardActive[1].querySelector('img'));
+
+        let tmp = title;
+    
+        if(cardActive[1].querySelector('img').dataset.value == 'PIEDRA'){
             title = tmp + ' PIEDRA'
             changeTitle(' ');
-        }else if(player2 == 1){
+        }else if(cardActive[1].querySelector('img').dataset.value == 'PAPEL'){
             title = tmp + ' PAPEL'
             changeTitle(' ');
         }else{
@@ -226,8 +227,3 @@ const revealCard = ()=>{
         }
     },1000)
 }
-
-console.log(player1);
-console.log(player2);
-console.log('Eads')
-
