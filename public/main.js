@@ -161,10 +161,10 @@ const $buttonNextProyect = document.querySelector("#button-next");
 
 const viewDemo = (e) => {
     const $viewDemo = document.getElementById('proyect-demo');
-
+    console.log(e);
     if (proyectValue == 'Pages') {
         if (e == 0) {
-            $viewDemo.href = '#hikari'
+            $viewDemo.href = 'https://page-anime-ajax.vercel.app/'
         } else {
             $viewDemo.href = '#Nagatoro'
         }
@@ -219,9 +219,9 @@ let proyect = 0;
 const $proyect = document.querySelectorAll('#proyect');
 const $proyectTitle = document.getElementById('proyect-title');
 const changeProyect = () => {
+    
+    
     proyect++;
-    viewDemo(proyect);
-
     if (proyectValue == 'Pages') {
         if (proyect == 2) {
             proyect = 0;
@@ -231,10 +231,11 @@ const changeProyect = () => {
             proyect = 2;
         }
     }
-
+    
+    viewDemo(proyect);
     
     switch (proyect) {
-        case 0: $proyectTitle.textContent = 'Page hikomori';
+        case 0: $proyectTitle.textContent = 'ANIME J';
             break;
         case 1: $proyectTitle.textContent = 'Page Nagatoro';
             break;
@@ -285,7 +286,7 @@ const changeListProyects = e => {
     if (spanClicked == 'Pages') {
         proyectValue = 'Pages';
         contPoint = 0;
-        $proyectTitle.textContent = 'Page hikomori';
+        $proyectTitle.textContent = 'ANIME J';
         listProyect[0].classList.add('list-proyect-active');
         $proyect[0].classList.add('proyect-active');
         proyect = 0;
