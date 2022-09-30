@@ -166,15 +166,15 @@ const viewDemo = (e) => {
         if (e == 0) {
             $viewDemo.href = 'https://page-anime-ajax.vercel.app/'
         } else {
-            $viewDemo.href = '#Nagatoro'
+            $viewDemo.href = '#none'
         }
     } else {
         if (e == 2) {
-            $viewDemo.href = './pages/Pokedex/index.html';
+            $viewDemo.href = 'https://pokedex-cjud.vercel.app/';
         } else if (e == 3) {
-            $viewDemo.href = './pages/ChessGame/index.html';
+            $viewDemo.href = 'https://game-tic-tac-toe-xi.vercel.app/';
         } else if (e == 4) {
-            $viewDemo.href = './pages/RockPaperAndScisor/index.html';
+            $viewDemo.href = 'https://rock-paper-and-scisor.vercel.app/';
         } else {
             $viewDemo.href = '#random';
         }
@@ -241,7 +241,7 @@ const changeProyect = () => {
             break;
         case 2: $proyectTitle.textContent = 'Pokedex / PokeAPI';
             break;
-        case 3: $proyectTitle.textContent = 'Game Chess';
+        case 3: $proyectTitle.textContent = 'Tic Tac Toe';
             break;
         case 4: $proyectTitle.textContent = 'Rock,Papper and scisor';
             break;

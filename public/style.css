@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 html {
@@ -39,6 +40,8 @@ footer {
 :root {
     --color-body: #fff;
     --color-dark: #000;
+
+    --shadow-color: 0deg 0% 0%;
 
     /* BG-SLATE-100 */
     --color-main: rgb(241 245 249);
@@ -137,8 +140,13 @@ footer {
     bottom: -200%;
 }
 
+.home__blob{
+    width: 350px;
+}
 
-
+.home__blob-img{
+    width: 200px;
+}
 .active {
     background-color: var(--color-active) !important;
 }
