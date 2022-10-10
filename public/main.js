@@ -237,7 +237,7 @@ const changeProyect = () => {
     switch (proyect) {
         case 0: $proyectTitle.textContent = 'ANIME J';
             break;
-        case 1: $proyectTitle.textContent = 'Page Nagatoro';
+        case 1: $proyectTitle.textContent = 'In process';
             break;
         case 2: $proyectTitle.textContent = 'Pokedex / PokeAPI';
             break;
@@ -374,3 +374,4 @@ links.forEach((e,i)=> {
     });
 });
 
+console.log(1=="1")

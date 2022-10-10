@@ -27,6 +27,7 @@ main {
 img {
     height: 100%;
     width: 100%;
+    background-repeat: fi;
 }
 
 textarea {
@@ -145,7 +146,7 @@ footer {
 }
 
 .home__blob-img{
-    width: 200px;
+    width: 300px;
 }
 .active {
     background-color: var(--color-active) !important;
@@ -302,7 +303,7 @@ footer {
     outline: none;
 }
 
-/* ================ ABOUT ME ============== */
+/* ================ skills ============== */
 
 #skill {
 
@@ -321,9 +322,18 @@ footer {
 
 }
 
+
 .skill-open #skill-arrow {
 
     transform: rotate(-180deg);
+}
+
+.skills__blob{
+    width: 300px;
+}
+
+.skills__blob-img{
+    width: 200px;
 }
 
 /* ================= TESTIMONIAL =============== */
