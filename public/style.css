@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 html {
@@ -36,6 +39,10 @@ textarea {
 
 footer {
     min-height: 388px;
+}
+
+svg{
+    fill: var(--color-fourth);
 }
 
 :root {
@@ -147,6 +154,7 @@ footer {
 
 .home__blob-img{
     width: 300px;
+    filter: grayscale(20%);
 }
 .active {
     background-color: var(--color-active) !important;
